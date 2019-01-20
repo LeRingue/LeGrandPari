@@ -1,0 +1,32 @@
+html, body, header, footer, div, nav, ul, section{
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: lightblue;
+  /* background-color: #C4E8C8; */
+  color: #3A5FCD;
+}
+
+header{
+  width: 100%;
+  height: 20vh;
+  /* background-color: rgba(200, 200, 200, 0.5); */
+  background-size: cover;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+footer{
+  position:fixed;
+  width: 100%;
+  top: 90vh;
+  height: 10vh;
+  /* background-color: rgba(200, 200, 200, 0.5); */
+  /* background-size: cover; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
