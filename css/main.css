@@ -1,4 +1,4 @@
-html, body, header, footer, div, nav, ul, section{
+html, body, header, main, footer, div, nav, section{
   padding: 0;
   border: 0;
   margin: 0;
@@ -10,22 +10,38 @@ html, body, header, footer, div, nav, ul, section{
 
 header{
   width: 100%;
-  height: 20vh;
-  /* background-color: rgba(200, 200, 200, 0.5); */
+  height: 5vh;
+  /* position: fixed; */
   background-size: cover;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
+  border: 2px solid hotpink;
 }
+
+main{
+  width: 100%;
+  height: 90vh;
+  /* top: 10vh; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#GroupProno, #GroupRanks, #FinalProno, #FinalRound{
+  width: 50%;
+  height: 45vh;
+  border: 2px solid green;
+}
+
 
 footer{
   position:fixed;
   width: 100%;
-  top: 90vh;
-  height: 10vh;
-  /* background-color: rgba(200, 200, 200, 0.5); */
-  /* background-size: cover; */
+  top: 95vh;
+  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
