@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/main.css">
-  <title>Document</title>
+  <title>Le Grand Pari 9</title>
 </head>
 <body>
   <header>
@@ -16,57 +16,130 @@
       <table>
         <thead>
           <tr>
-            <th colspan="7">Groupe A</th>
+            <th colspan="7" class="match"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td class="date"></td>
-            <td class="hour"></td>
-            <td class="equipA1"></td>
-            <td>ScoreA1</td>
-            <td>ScoreA2</td>
-            <td class="equipA2"></td>
+            <td>Match</td>
+            <td>Date</td>
+            <td>Time</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
-            <td>2</td>
+            <td class = "matchID" id="matchID"></td>
             <td class="date"></td>
             <td class="hour"></td>
-            <td class="equipA3"></td>
-            <td>ScoreA3</td>
-            <td>ScoreA4</td>
-            <td class="equipA4"></td>
+            <td class="teamA"></td>
+            <td><input type="text" form="formM1" autocomplete="disabled" name="score1A" autofocus tabindex="0" maxlength = "1" class="score" id="score1A" required></td>
+            <td><input type="text" form="formM1" autocomplete="disabled" name="score1B" maxlength = "1" class="score" id="score1B" required></td>
+            <td class="teamB"></td>
           </tr>
           <tr>
-            <td>3</td>
+            <td class = "matchID" id="matchID"></td>
             <td class="date"></td>
             <td class="hour"></td>
-            <td class="equipA2"></td>
-            <td>ScoreA3</td>
-            <td>ScoreA4</td>
-            <td class="equipA4"></td>
+            <td class="teamA"></td>
+            <td><input type="text" form="formM2" autocomplete="disabled" name="score2A" maxlength = "1" class="score" id="score2A" required></td>
+            <td><input type="text" form="formM2" autocomplete="disabled" name="score2B" maxlength = "1" class="score" id="score2B" required></td>
+            <td class="teamB"></td>
+          </tr>
           <tr>
-            <td>4</td>
+            <td class = "matchID" id="matchID"></td>
             <td class="date"></td>
             <td class="hour"></td>
-            <td class="equipA1"></td>
-            <td>ScoreA3</td>
-            <td>ScoreA4</td>
-            <td class="equipA3"></td>
+            <td class="teamA"></td>
+            <td><input type="text" form="formM3" autocomplete="disabled" name="score3A" maxlength = "1" class="score" id="score3A" required></td>
+            <td><input type="text" form="formM3" autocomplete="disabled" name="score3B" maxlength = "1" class="score" id="score3B" required></td>
+            <td class="teamB"></td>
+          <tr>
+            <td class = "matchID" id="matchID"></td>
+            <td class="date"></td>
+            <td class="hour"></td>
+            <td class="teamA"></td>
+            <td><input type="text" form="formM4" autocomplete="disabled" name="score4A" maxlength = "1" class="score" id="score4A" required></td>
+            <td><input type="text" form="formM4" autocomplete="disabled" name="score4B" maxlength = "1" class="score" id="score4B" required></td>
+            <td class="teamB"></td>
+          </tr>
+          <tr>
+            <td class = "matchID" id="matchID"></td>
+            <td class="date"></td>
+            <td class="hour"></td>
+            <td class="teamA"></td>
+            <td><input type="text" form="formM5" autocomplete="disabled" name="score5A" maxlength = "1" class="score" id="score5A" required></td>
+            <td><input type="text" form="formM5" autocomplete="disabled" name="score5B" maxlength = "1" class="score" id="score5B" required></td>
+            <td class="teamB"></td>
+          </tr>
+          <tr>
+            <td class = "matchID" id="matchID"></td>
+            <td class="date"></td>
+            <td class="hour"></td>
+            <td class="teamA"></td>
+            <td><input type="text" form="formM6" autocomplete="disabled" name="score6A" maxlength = "1" class="score" id="score6A" required></td>
+            <td><input type="text" form="formM6" autocomplete="disabled" name="score6B" maxlength = "1" class="score" id="score6B" required></td>
+            <td class="teamB"></td>
           </tr>
         </tbody>
       </table>
 
     </section>
     <section id=GroupRanks>
-
+      <table>
+        <thead>
+          <tr>
+            <th colspan="6" class="group"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rank</td>
+            <td>Team</td>
+            <td>pts</td>
+            <td>BP</td>
+            <td>BM</td>
+            <td>GA</td>
+          </tr>
+          <tr>
+            <td id="rank1">1</td>
+            <td id="r1team">Team1</td>
+            <td id="r1pts">0</td>
+            <td id="r1BP">0</td>
+            <td id="r1BM">0</td>
+            <td id="r1GA">0</td>
+          </tr>
+          <tr>
+            <td id="rank2">1</td>
+            <td id="r2team">Team2</td>
+            <td id="r2pts">0</td>
+            <td id="r2BP">0</td>
+            <td id="r2BM">0</td>
+            <td id="r2GA">0</td>
+          </tr>
+          <tr>
+            <td id="rank3">1</td>
+            <td id="r3team">Team3</td>
+            <td id="r3pts">0</td>
+            <td id="r3BP">0</td>
+            <td id="r3BM">0</td>
+            <td id="r3GA">0</td>
+          </tr>
+          <tr>
+            <td id="rank4">1</td>
+            <td id="r4team">Team4</td>
+            <td id="r4pts">0</td>
+            <td id="r4BP">0</td>
+            <td id="r4BM">0</td>
+            <td id="r4GA">0</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
-    <section id=FinalProno>
-
-    </section>
+    <!-- <section id=FinalProno>
+    </section> -->
     <section id=FinalRound>
-
     </section>
   </main>
 
@@ -74,5 +147,6 @@
     <p>All rights reserved LeGrandPari</p>
   </footer>
   <script type="text/javascript" src="js/static.js"></script>
+  <script type="text/javascript" src="js/events.js"></script>
 </body>
 </html>

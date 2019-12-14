@@ -17,7 +17,7 @@ header{
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
-  border: 2px solid hotpink;
+  /* border: 2px solid hotpink; */
 }
 
 main{
@@ -29,13 +29,33 @@ main{
   justify-content: center;
   align-items: center;
 }
+table{
+  width: 80%;
+}
 
-#GroupProno, #GroupRanks, #FinalProno, #FinalRound{
-  width: 50%;
+#FinalRound{
+  width: 100%;
   height: 45vh;
   border: 2px solid green;
 }
 
+#GroupProno, #GroupRanks, #FinalProno{
+  width: 50%;
+  height: 45vh;
+  border: 2px solid green;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.score{
+  width: 30px;
+}
+
+.rank{
+  /* border: 2px solid hotpink; */
+}
 
 footer{
   position:fixed;

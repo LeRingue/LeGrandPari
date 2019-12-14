@@ -4,34 +4,36 @@ const A2 = 'Roumanie';
 const A3 = 'Albanie';
 const A4 = 'Suisse';
 
-// Date & time
-const dateArray = ["10 juin 2018", "11 juin 2018", "15 juin 2018", "16 juin 2018"];
-const hourArray = ["21:00", "15:00", "18:00", "20:00"];
+const matchArray = [
+  {'group' : 'Groupe A', 'MatchID' : '1', 'date' : "10 juin 2018", 'time' : "21:00", 'teamA' : A1, 'teamB' : A2,},
+  {'group' : 'Groupe A', 'MatchID' : '2', 'date' : "11 juin 2018", 'time' : "15:00", 'teamA' : A3, 'teamB' : A4,},
+  {'group' : 'Groupe A', 'MatchID' : '3', 'date' : "15 juin 2018", 'time' : "18:00", 'teamA' : A2, 'teamB' : A4,},
+  {'group' : 'Groupe A', 'MatchID' : '4', 'date' : "16 juin 2018", 'time' : "20:00", 'teamA' : A1, 'teamB' : A3,},
+  {'group' : 'Groupe A', 'MatchID' : '5', 'date' : "17 juin 2018", 'time' : "17:00", 'teamA' : A1, 'teamB' : A4,},
+  {'group' : 'Groupe A', 'MatchID' : '6', 'date' : "18 juin 2018", 'time' : "19:00", 'teamA' : A2, 'teamB' : A3,},
+];
 
-// Fill teams
-let equipA1 = document.querySelectorAll('.equipA1');
-let equipA2 = document.querySelectorAll('.equipA2');
-let equipA3 = document.querySelectorAll('.equipA3');
-let equipA4 = document.querySelectorAll('.equipA4');
-equipA1.forEach(function(equipA1){
-  equipA1.textContent = A1;
+// Fill match ID
+let matchID = document.querySelectorAll('.matchID');
+matchID.forEach(function(matchID, index){
+  matchID.textContent = matchArray[index]['MatchID'];
 })
-equipA2.forEach(function(equipA2){
-  equipA2.textContent = A2;
+// Fill team names
+let teamA = document.querySelectorAll('.teamA');
+teamA.forEach(function(teamA, index){
+  teamA.textContent = matchArray[index]['teamA'];
 })
-equipA3.forEach(function(equipA3){
-  equipA3.textContent = A3;
-})
-equipA4.forEach(function(equipA4){
-  equipA4.textContent = A4;
+let teamB = document.querySelectorAll('.teamB');
+teamB.forEach(function(teamB, index){
+  teamB.textContent = matchArray[index]['teamB'];
 })
 // Fill match dates
 let date = document.querySelectorAll('.date');
 date.forEach(function(date, index){
-  date.textContent = dateArray[index];
+  date.textContent = matchArray[index]['date'];
 })
 // Fill match hours
 let hour = document.querySelectorAll('.hour');
 hour.forEach(function(hour, index){
-  hour.textContent = hourArray[index];
+  hour.textContent = matchArray[index]['time'];
 })
