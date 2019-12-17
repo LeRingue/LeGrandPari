@@ -1,23 +1,50 @@
 document.addEventListener('keydown', logKey);
 
-const matchNumberList = ["matchID1", "matchID2", "matchID3", "matchID4", "matchID5", "matchID6"];
-const scoreAList = ["score1A", "score2A", "score3A", "score4A", "score5A", "score6A"];
-const scoreBList = ["score1B", "score2B", "score3B", "score4B", "score5B", "score6B"];
+const matchNumberList = ["matchID1", "matchID2", "matchID3", "matchID4", "matchID5", "matchID6"];//, "matchID7", "matchID8", "matchID9", "matchID10", "matchID11", "matchID12"];
+const scoreAList = ["score1A", "score2A", "score3A", "score4A", "score5A", "score6A"];//, "score7A", "score8A", "score9A", "score10A", "score11A", "score12A"];
+const scoreBList = ["score1B", "score2B", "score3B", "score4B", "score5B", "score6B"];//, "score7B", "score8B", "score9B", "score10B", "score11B", "score12B"];
+const groupCompo = [['Groupe A', A1, A2, A3, A4],
+                    ['Groupe B', B1, B2, B3, B4],
+                    ['Groupe C', C1, C2, C3, C4],
+                    ['Groupe D', D1, D2, D3, D4],
+                    ['Groupe E', E1, E2, E3, E4],
+                    ['Groupe F', F1, F2, F3, F4]];
 
 const GroupRankingInit = [
+  {'group' : '', 'rank' : 1, 'team' : A1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : '', 'rank' : 1, 'team' : A2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : '', 'rank' : 1, 'team' : A3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : '', 'rank' : 1, 'team' : A4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
+];
+let GroupARanking = [
   {'group' : 'Groupe A', 'rank' : 1, 'team' : A1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe A', 'rank' : 1, 'team' : A2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe A', 'rank' : 1, 'team' : A3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe A', 'rank' : 1, 'team' : A4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
-let GroupRanking = [
-  {'group' : 'Groupe A', 'rank' : 1, 'team' : A1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : 'Groupe A', 'rank' : 1, 'team' : A2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : 'Groupe A', 'rank' : 1, 'team' : A3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : 'Groupe A', 'rank' : 1, 'team' : A4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
+let GroupBRanking = [
+  {'group' : 'Groupe B', 'rank' : 1, 'team' : A1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe B', 'rank' : 1, 'team' : A2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe B', 'rank' : 1, 'team' : A3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe B', 'rank' : 1, 'team' : A4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
 
-function ComputeRank(){
+function ResetGroupRanking(group, GroupRanking){
+  // Convert A-F to 0-7
+  let indexGroup = group.charCodeAt() - 0x41;
+  for (let i = 0; i < GroupRanking.length; i++){
+    GroupRanking[i]['group'] = groupCompo[indexGroup][0];
+    GroupRanking[i]['rank'] = GroupRankingInit[i]['rank'];
+    GroupRanking[i]['team'] = groupCompo[indexGroup][i+1];
+    GroupRanking[i]['played'] = GroupRankingInit[i]['played'];
+    GroupRanking[i]['pts'] = GroupRankingInit[i]['pts'];
+    GroupRanking[i]['BP'] = GroupRankingInit[i]['BP'];
+    GroupRanking[i]['BM'] = GroupRankingInit[i]['BM'];
+    GroupRanking[i]['GA'] = GroupRankingInit[i]['GA'];
+  }
+}
+
+function ComputeRank(GroupRanking){
   // Check First
   for (let i = 0; i < GroupRanking.length; i++){
     for (let j = 0; j < GroupRanking.length; j++){
@@ -72,16 +99,8 @@ function ComputeRank(){
 
 function logKey(e) {
   // Reset GroupRanking
-  for (let i = 0; i < GroupRanking.length; i++){
-    GroupRanking[i]['group'] = GroupRankingInit[i]['group'];
-    GroupRanking[i]['rank'] = GroupRankingInit[i]['rank'];
-    GroupRanking[i]['team'] = GroupRankingInit[i]['team'];
-    GroupRanking[i]['played'] = GroupRankingInit[i]['played'];
-    GroupRanking[i]['pts'] = GroupRankingInit[i]['pts'];
-    GroupRanking[i]['BP'] = GroupRankingInit[i]['BP'];
-    GroupRanking[i]['BM'] = GroupRankingInit[i]['BM'];
-    GroupRanking[i]['GA'] = GroupRankingInit[i]['GA'];
-  }
+  ResetGroupRanking("A", GroupARanking);
+  ResetGroupRanking("B", GroupBRanking);
   // Check form entries that are set
   for (let num = 0; num < matchNumberList.length; num++){
     scoreA = scoreAList[num];
@@ -110,72 +129,72 @@ function logKey(e) {
       // Associate team with index in GroupRanking
       let index1 = 0;
       let index2 = 0;
-      while ((GroupRanking[index1]['team'] != team1) && (index1 < GroupRanking.length)){
+      while ((GroupARanking[index1]['team'] != team1) && (index1 < GroupARanking.length)){
         index1 += 1;
       }
-      while ((GroupRanking[index2]['team'] != team2) && (index2 < GroupRanking.length)){
+      while ((GroupARanking[index2]['team'] != team2) && (index2 < GroupARanking.length)){
         index2 += 1;
       }
       if(score1 > score2){
-        GroupRanking[index1]['pts'] += 3;
+        GroupARanking[index1]['pts'] += 3;
       }
       if(score1 == score2){
-        GroupRanking[index1]['pts'] += 1;
-        GroupRanking[index2]['pts'] += 1;
+        GroupARanking[index1]['pts'] += 1;
+        GroupARanking[index2]['pts'] += 1;
       }
       if(score1 < score2){
-        GroupRanking[index2]['pts'] += 3;
+        GroupARanking[index2]['pts'] += 3;
       }
-      GroupRanking[index1]['played'] += 1;
-      GroupRanking[index1]['BP'] += score1;
-      GroupRanking[index1]['BM'] += score2;
-      GroupRanking[index1]['GA'] += score1 - score2;
-      GroupRanking[index2]['played'] += 1;
-      GroupRanking[index2]['BP'] += score2;
-      GroupRanking[index2]['BM'] += score1;
-      GroupRanking[index2]['GA'] += score2 - score1;
+      GroupARanking[index1]['played'] += 1;
+      GroupARanking[index1]['BP'] += score1;
+      GroupARanking[index1]['BM'] += score2;
+      GroupARanking[index1]['GA'] += score1 - score2;
+      GroupARanking[index2]['played'] += 1;
+      GroupARanking[index2]['BP'] += score2;
+      GroupARanking[index2]['BM'] += score1;
+      GroupARanking[index2]['GA'] += score2 - score1;
     }
   }
 
   // Compute rank
-  ComputeRank();
+  ComputeRank(GroupARanking);
 
   // Update text to display
   let index = 0;
-  rank1.textContent = GroupRanking[index]['rank'];
-  r1team.textContent = GroupRanking[index]['team'];
-  r1played.textContent = GroupRanking[index]['played'];
-  r1pts.textContent = GroupRanking[index]['pts'];
-  r1BP.textContent = GroupRanking[index]['BP'];
-  r1BM.textContent = GroupRanking[index]['BM'];
-  r1GA.textContent = GroupRanking[index]['GA'];
+  rankA1.textContent = GroupARanking[index]['rank'];
+  rA1team.textContent = GroupARanking[index]['team'];
+  rA1played.textContent = GroupARanking[index]['played'];
+  rA1pts.textContent = GroupARanking[index]['pts'];
+  rA1BP.textContent = GroupARanking[index]['BP'];
+  rA1BM.textContent = GroupARanking[index]['BM'];
+  rA1GA.textContent = GroupARanking[index]['GA'];
 
   index += 1;
-  rank2.textContent = GroupRanking[index]['rank'];
-  r2team.textContent = GroupRanking[index]['team'];
-  r2played.textContent = GroupRanking[index]['played'];
-  r2pts.textContent = GroupRanking[index]['pts'];
-  r2BP.textContent = GroupRanking[index]['BP'];
-  r2BM.textContent = GroupRanking[index]['BM'];
-  r2GA.textContent = GroupRanking[index]['GA'];
+  rankA2.textContent = GroupARanking[index]['rank'];
+  rA2team.textContent = GroupARanking[index]['team'];
+  rA2played.textContent = GroupARanking[index]['played'];
+  rA2pts.textContent = GroupARanking[index]['pts'];
+  rA2BP.textContent = GroupARanking[index]['BP'];
+  rA2BM.textContent = GroupARanking[index]['BM'];
+  rA2GA.textContent = GroupARanking[index]['GA'];
 
   index += 1;
-  rank3.textContent = GroupRanking[index]['rank'];
-  r3team.textContent = GroupRanking[index]['team'];
-  r3played.textContent = GroupRanking[index]['played'];
-  r3pts.textContent = GroupRanking[index]['pts'];
-  r3BP.textContent = GroupRanking[index]['BP'];
-  r3BM.textContent = GroupRanking[index]['BM'];
-  r3GA.textContent = GroupRanking[index]['GA'];
+  rankA3.textContent = GroupARanking[index]['rank'];
+  rA3team.textContent = GroupARanking[index]['team'];
+  rA3played.textContent = GroupARanking[index]['played'];
+  rA3pts.textContent = GroupARanking[index]['pts'];
+  rA3BP.textContent = GroupARanking[index]['BP'];
+  rA3BM.textContent = GroupARanking[index]['BM'];
+  rA3GA.textContent = GroupARanking[index]['GA'];
 
   index += 1;
-  rank4.textContent = GroupRanking[index]['rank'];
-  r4team.textContent = GroupRanking[index]['team'];
-  r4played.textContent = GroupRanking[index]['played'];
-  r4pts.textContent = GroupRanking[index]['pts'];
-  r4BP.textContent = GroupRanking[index]['BP'];
-  r4BM.textContent = GroupRanking[index]['BM'];
-  r4GA.textContent = GroupRanking[index]['GA'];
+  rankA4.textContent = GroupARanking[index]['rank'];
+  rA4team.textContent = GroupARanking[index]['team'];
+  rA4played.textContent = GroupARanking[index]['played'];
+  rA4pts.textContent = GroupARanking[index]['pts'];
+  rA4BP.textContent = GroupARanking[index]['BP'];
+  rA4BM.textContent = GroupARanking[index]['BM'];
+  rA4GA.textContent = GroupARanking[index]['GA'];
 
 
   // rank3.textContent = scoreA;

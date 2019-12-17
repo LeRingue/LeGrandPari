@@ -8,143 +8,278 @@
   <title>Le Grand Pari 9</title>
 </head>
 <body>
-  <header>
-
-  </header>
+  <header>Le Grand Pari 9</header>
   <main>
-    <section id=GroupProno>
-      <table id="GroupA">
-        <thead>
-          <tr>
-            <th colspan="7" class="match"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Match</td>
-            <td>Date</td>
-            <td>Time</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class = "matchID" id="matchID1"></td>
-            <td class="date"></td>
-            <td class="hour"></td>
-            <td class="teamA"></td>
-            <td><input type="text" form="formM1" autocomplete="disabled" name="score1A" autofocus tabindex="0" maxlength = "1" class="score" id="score1A" required></td>
-            <td><input type="text" form="formM1" autocomplete="disabled" name="score1B" maxlength = "1" class="score" id="score1B" required></td>
-            <td class="teamB"></td>
-          </tr>
-          <tr>
-            <td class = "matchID" id="matchID2"></td>
-            <td class="date"></td>
-            <td class="hour"></td>
-            <td class="teamA"></td>
-            <td><input type="text" form="formM2" autocomplete="disabled" name="score2A" maxlength = "1" class="score" id="score2A" required></td>
-            <td><input type="text" form="formM2" autocomplete="disabled" name="score2B" maxlength = "1" class="score" id="score2B" required></td>
-            <td class="teamB"></td>
-          </tr>
-          <tr>
-            <td class = "matchID" id="matchID3"></td>
-            <td class="date"></td>
-            <td class="hour"></td>
-            <td class="teamA"></td>
-            <td><input type="text" form="formM3" autocomplete="disabled" name="score3A" maxlength = "1" class="score" id="score3A" required></td>
-            <td><input type="text" form="formM3" autocomplete="disabled" name="score3B" maxlength = "1" class="score" id="score3B" required></td>
-            <td class="teamB"></td>
-          <tr>
-            <td class = "matchID" id="matchID4"></td>
-            <td class="date"></td>
-            <td class="hour"></td>
-            <td class="teamA"></td>
-            <td><input type="text" form="formM4" autocomplete="disabled" name="score4A" maxlength = "1" class="score" id="score4A" required></td>
-            <td><input type="text" form="formM4" autocomplete="disabled" name="score4B" maxlength = "1" class="score" id="score4B" required></td>
-            <td class="teamB"></td>
-          </tr>
-          <tr>
-            <td class = "matchID" id="matchID5"></td>
-            <td class="date"></td>
-            <td class="hour"></td>
-            <td class="teamA"></td>
-            <td><input type="text" form="formM5" autocomplete="disabled" name="score5A" maxlength = "1" class="score" id="score5A" required></td>
-            <td><input type="text" form="formM5" autocomplete="disabled" name="score5B" maxlength = "1" class="score" id="score5B" required></td>
-            <td class="teamB"></td>
-          </tr>
-          <tr>
-            <td class = "matchID" id="matchID6"></td>
-            <td class="date"></td>
-            <td class="hour"></td>
-            <td class="teamA"></td>
-            <td><input type="text" form="formM6" autocomplete="disabled" name="score6A" maxlength = "1" class="score" id="score6A" required></td>
-            <td><input type="text" form="formM6" autocomplete="disabled" name="score6B" maxlength = "1" class="score" id="score6B" required></td>
-            <td class="teamB"></td>
-          </tr>
-        </tbody>
-      </table>
-
-    </section>
-    <section id=GroupRanks>
-      <table>
-        <thead>
-          <tr>
-            <th colspan="7" class="group"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Rank</td>
-            <td>Team</td>
-            <td>Played</td>
-            <td>pts</td>
-            <td>BP</td>
-            <td>BM</td>
-            <td>GA</td>
-          </tr>
-          <tr>
-            <td id="rank1">1</td>
-            <td id="r1team">Team1</td>
-            <td id="r1played">0</td>
-            <td id="r1pts">0</td>
-            <td id="r1BP">0</td>
-            <td id="r1BM">0</td>
-            <td id="r1GA">0</td>
-          </tr>
-          <tr>
-            <td id="rank2">1</td>
-            <td id="r2team">Team2</td>
-            <td id="r2played">0</td>
-            <td id="r2pts">0</td>
-            <td id="r2BP">0</td>
-            <td id="r2BM">0</td>
-            <td id="r2GA">0</td>
-          </tr>
-          <tr>
-            <td id="rank3">1</td>
-            <td id="r3team">Team3</td>
-            <td id="r3played">0</td>
-            <td id="r3pts">0</td>
-            <td id="r3BP">0</td>
-            <td id="r3BM">0</td>
-            <td id="r3GA">0</td>
-          </tr>
-          <tr>
-            <td id="rank4">1</td>
-            <td id="r4team">Team4</td>
-            <td id="r4played">0</td>
-            <td id="r4pts">0</td>
-            <td id="r4BP">0</td>
-            <td id="r4BM">0</td>
-            <td id="r4GA">0</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <nav>
+      <!-- Groupe A -->
+      <label for="GroupeA">Groupe A</label>
+      <input type="radio" id="GroupeA" name="Group" value="GroupeA" checked>
+      <section class="Group" id="GroupeA">
+        <table id="GroupA">
+            <thead>
+              <tr>
+                <th colspan="7" class="match"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Match</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID1"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM1" autocomplete="disabled" name="score1A" autofocus tabindex="0" maxlength = "1" class="score" id="score1A" required></td>
+                <td><input type="text" form="formM1" autocomplete="disabled" name="score1B" maxlength = "1" class="score" id="score1B" required></td>
+                <td class="teamB"></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID2"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM2" autocomplete="disabled" name="score2A" maxlength = "1" class="score" id="score2A" required></td>
+                <td><input type="text" form="formM2" autocomplete="disabled" name="score2B" maxlength = "1" class="score" id="score2B" required></td>
+                <td class="teamB"></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID3"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM3" autocomplete="disabled" name="score3A" maxlength = "1" class="score" id="score3A" required></td>
+                <td><input type="text" form="formM3" autocomplete="disabled" name="score3B" maxlength = "1" class="score" id="score3B" required></td>
+                <td class="teamB"></td>
+              <tr>
+                <td class = "matchID" id="matchID4"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM4" autocomplete="disabled" name="score4A" maxlength = "1" class="score" id="score4A" required></td>
+                <td><input type="text" form="formM4" autocomplete="disabled" name="score4B" maxlength = "1" class="score" id="score4B" required></td>
+                <td class="teamB"></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID5"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM5" autocomplete="disabled" name="score5A" maxlength = "1" class="score" id="score5A" required></td>
+                <td><input type="text" form="formM5" autocomplete="disabled" name="score5B" maxlength = "1" class="score" id="score5B" required></td>
+                <td class="teamB"></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID6"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM6" autocomplete="disabled" name="score6A" maxlength = "1" class="score" id="score6A" required></td>
+                <td><input type="text" form="formM6" autocomplete="disabled" name="score6B" maxlength = "1" class="score" id="score6B" required></td>
+                <td class="teamB"></td>
+              </tr>
+            </tbody>
+          </table>
+      </section>
+      <section class="Rank" id=GroupARanks>
+          <table>
+            <thead>
+              <tr>
+                <th colspan="7" class="group"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rank</td>
+                <td>Team</td>
+                <td>Played</td>
+                <td>pts</td>
+                <td>BP</td>
+                <td>BM</td>
+                <td>GA</td>
+              </tr>
+              <tr>
+                <td id="rankA1">1</td>
+                <td id="rA1team">Team1</td>
+                <td id="rA1played">0</td>
+                <td id="rA1pts">0</td>
+                <td id="rA1BP">0</td>
+                <td id="rA1BM">0</td>
+                <td id="rA1GA">0</td>
+              </tr>
+              <tr>
+                <td id="rankA2">1</td>
+                <td id="rA2team">Team2</td>
+                <td id="rA2played">0</td>
+                <td id="rA2pts">0</td>
+                <td id="rA2BP">0</td>
+                <td id="rA2BM">0</td>
+                <td id="rA2GA">0</td>
+              </tr>
+              <tr>
+                <td id="rankA3">1</td>
+                <td id="rA3team">Team3</td>
+                <td id="rA3played">0</td>
+                <td id="rA3pts">0</td>
+                <td id="rA3BP">0</td>
+                <td id="rA3BM">0</td>
+                <td id="rA3GA">0</td>
+              </tr>
+              <tr>
+                <td id="rankA4">1</td>
+                <td id="rA4team">Team4</td>
+                <td id="rA4played">0</td>
+                <td id="rA4pts">0</td>
+                <td id="rA4BP">0</td>
+                <td id="rA4BM">0</td>
+                <td id="rA4GA">0</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      <!-- Groupe B -->
+      <label for="GroupeB">Groupe B</label>
+      <input type="radio" id="GroupeB" name="Group" value="GroupeB">
+      <section class="Group" id="GroupeB">
+        <table id="GroupB">
+            <thead>
+              <tr>
+                <th colspan="7" class="match"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Match</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID7"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM7" autocomplete="disabled" name="score7A" maxlength = "1" class="score" id="score7A" required></td>
+                <td><input type="text" form="formM7" autocomplete="disabled" name="score7B" maxlength = "1" class="score" id="score7B" required></td>
+                <td class="teamB"></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID8"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM8" autocomplete="disabled" name="score8A" maxlength = "1" class="score" id="score8A" required></td>
+                <td><input type="text" form="formM8" autocomplete="disabled" name="score8B" maxlength = "1" class="score" id="score8B" required></td>
+                <td class="teamB"></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID9"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM9" autocomplete="disabled" name="score9A" maxlength = "1" class="score" id="score9A" required></td>
+                <td><input type="text" form="formM9" autocomplete="disabled" name="score9B" maxlength = "1" class="score" id="score9B" required></td>
+                <td class="teamB"></td>
+              <tr>
+                <td class = "matchID" id="matchID10"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM10" autocomplete="disabled" name="score10A" maxlength = "1" class="score" id="score10A" required></td>
+                <td><input type="text" form="formM10" autocomplete="disabled" name="score10B" maxlength = "1" class="score" id="score10B" required></td>
+                <td class="teamB"></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID11"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM11" autocomplete="disabled" name="score11A" maxlength = "1" class="score" id="score11A" required></td>
+                <td><input type="text" form="formM11" autocomplete="disabled" name="score11B" maxlength = "1" class="score" id="score11B" required></td>
+                <td class="teamB"></td>
+              </tr>
+              <tr>
+                <td class = "matchID" id="matchID12"></td>
+                <td class="date"></td>
+                <td class="hour"></td>
+                <td class="teamA"></td>
+                <td><input type="text" form="formM12" autocomplete="disabled" name="score12A" maxlength = "1" class="score" id="score12A" required></td>
+                <td><input type="text" form="formM12" autocomplete="disabled" name="score12B" maxlength = "1" class="score" id="score12B" required></td>
+                <td class="teamB"></td>
+              </tr>
+            </tbody>
+          </table>
+      </section>
+      <section class="Rank" id=GroupBRanks>
+          <table>
+            <thead>
+              <tr>
+                <th colspan="7" class="group"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rank</td>
+                <td>Team</td>
+                <td>Played</td>
+                <td>pts</td>
+                <td>BP</td>
+                <td>BM</td>
+                <td>GA</td>
+              </tr>
+              <tr>
+                <td id="rankB1">1</td>
+                <td id="rB1team">Team1</td>
+                <td id="rB1played">0</td>
+                <td id="rB1pts">0</td>
+                <td id="rB1BP">0</td>
+                <td id="rB1BM">0</td>
+                <td id="rB1GA">0</td>
+              </tr>
+              <tr>
+                <td id="rankB2">1</td>
+                <td id="rB2team">Team2</td>
+                <td id="rB2played">0</td>
+                <td id="rB2pts">0</td>
+                <td id="rB2BP">0</td>
+                <td id="rB2BM">0</td>
+                <td id="rB2GA">0</td>
+              </tr>
+              <tr>
+                <td id="rankB3">1</td>
+                <td id="rB3team">Team3</td>
+                <td id="rB3played">0</td>
+                <td id="rB3pts">0</td>
+                <td id="rB3BP">0</td>
+                <td id="rB3BM">0</td>
+                <td id="rB3GA">0</td>
+              </tr>
+              <tr>
+                <td id="rankB4">1</td>
+                <td id="rB4team">Team4</td>
+                <td id="rB4played">0</td>
+                <td id="rB4pts">0</td>
+                <td id="rB4BP">0</td>
+                <td id="rBBM">0</td>
+                <td id="rB4GA">0</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+    </nav>
     <!-- <section id=FinalProno>
     </section> -->
     <section id=FinalRound>
+
     </section>
   </main>
 
