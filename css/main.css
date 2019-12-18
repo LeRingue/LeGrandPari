@@ -46,14 +46,26 @@ nav{
   align-items: center;
 }
 
+
+nav>section {
+  position: fixed;
+  display: none;
+  top: 20vh;
+  left: 0rem;
+  height: 30vh;
+  width: 100vw;
+  /* border: 2px solid blue; */
+}
+
 label {
-  width: 7%;
+  width: 6%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
+  align-content: center;
   border-radius: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border: .2rem solid darkblue;
 }
 
@@ -64,61 +76,29 @@ label:hover {
 input[type="radio"] {
   display: none;
 }
-input[type="radio"]:checked + #GroupeA {
+input[type="radio"]:checked + .Group {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   align-content: flex-start;
-  border: 2px solid red;
 }
-input[type="radio"]:checked + #GroupeB {
+/* input[type="radio"]:checked + #GroupeB {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   align-content: flex-start;
-  border: 2px solid green;
+} */
 
-}
-
-nav>section{
-  position: fixed;
-  display: none;
+.Group {
   /* border: 2px solid blue; */
-  /* formatting */
-  top: 20vh;
-  left: 0rem;
+}
+table {
+  table-layout: fixed;
+  width: 45%;
   height: 30vh;
-  width: 100vw;
-}
-
-section.Group{
-  width: 50%;
-  /* display: inherit; */
-  /* align-content: flex-start; */
-  /* border: 2px solid blue; */
-  /* border: 2px solid green; */
-  }
-
-section.Rank{
   border: 2px solid blue;
-  /* formatting */
-  /* top: 20vh; */
-  left: 50%;
-  display: inherit;
-  align-content: flex-start;
-  /* height: 70vh; */
-  width: 50%;
-  }
-
-table{
-  width: 80%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
 }
 
 #FinalRound{
@@ -137,30 +117,44 @@ table{
 .matchID{
   width: 5%;
 }
-
 .date{
   width: 15%;
 }
-
 .hour{
   width: 10%;
 }
-
 .teamA{
   width: 20%;
 }
-
 .score{
   width: 30%;
 }
-
 .teamB{
   width: 20%;
 }
 
 .rank{
-  /* border: 2px solid hotpink; */
+  width: 10%;
 }
+.rankteam{
+  width: 50%;
+}
+.played{
+  width: 10%;
+}
+.pts{
+  width: 10%;
+}
+.BP{
+  width: 10%;
+}
+.BM{
+  width: 10%;
+}
+.GA{
+  width: 10%;
+}
+
 
 footer{
   position:fixed;

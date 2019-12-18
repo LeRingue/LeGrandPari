@@ -105,30 +105,30 @@ let matchArray = [
   {'group' : 'Groupe F', 'MatchID' : '23', 'date' : "20 juin 2020", 'time' : "15:00", 'teamA' : F1, 'teamB' : F3, 'scoreA' : "", 'scoreB' : ""},
   {'group' : 'Groupe F', 'MatchID' : '24', 'date' : "20 juin 2020", 'time' : "18:00", 'teamA' : F2, 'teamB' : F4, 'scoreA' : "", 'scoreB' : ""},
   {'group' : 'Groupe F', 'MatchID' : '35', 'date' : "24 juin 2020", 'time' : "21:00", 'teamA' : F4, 'teamB' : F1, 'scoreA' : "", 'scoreB' : ""},
-  {'group' : 'Groupe F', 'MatchID' : '36', 'date' : "24 juin 2020", 'time' : "21:00", 'teamA' : F2, 'teamB' : F3, 'scoreA' : "", 'scoreB' : ""},
+  {'group' : 'Groupe F', 'MatchID' : '36', 'date' : "24 juin 2020", 'time' : "21:00", 'teamA' : F2, 'teamB' : F3, 'scoreA' : "", 'scoreB' : ""}
 ];
 
 // Fill match ID
 let matchID = document.querySelectorAll('.matchID');
 matchID.forEach(function(matchID, index){
-    matchID.textContent = matchArray[index]['MatchID'];
+  matchID.textContent = matchArray[index]['MatchID'];
 })
 // Fill team names
 let teamA = document.querySelectorAll('.teamA');
 teamA.forEach(function(teamA, index){
-    teamA.textContent = matchArray[index]['teamA'];
+  teamA.textContent = matchArray[index]['teamA'];
 })
 let teamB = document.querySelectorAll('.teamB');
 teamB.forEach(function(teamB, index){
-    teamB.textContent = matchArray[index]['teamB'];
+  teamB.textContent = matchArray[index]['teamB'];
 })
 // Fill match dates
 let date = document.querySelectorAll('.date');
 date.forEach(function(date, index){
-    date.textContent = matchArray[index]['date'];
+  date.textContent = matchArray[index]['date'];
 })
 // Fill match hours
 let hour = document.querySelectorAll('.hour');
 hour.forEach(function(hour, index){
-    hour.textContent = matchArray[index]['time'];
+  hour.textContent = matchArray[index]['time'];
 })
