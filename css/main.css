@@ -83,21 +83,12 @@ input[type="radio"]:checked + .Group {
   align-items: center;
   align-content: flex-start;
 }
-/* input[type="radio"]:checked + #GroupeB {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: flex-start;
-} */
 
-.Group {
-  /* border: 2px solid blue; */
-}
 table {
-  table-layout: fixed;
+  table-layout: auto;
   width: 45%;
   height: 30vh;
+  /* column-width: fixed; */
   border: 2px solid blue;
 }
 
@@ -114,23 +105,35 @@ table {
   border: 2px solid orange;
 }
 
-.matchID{
+td[class="matchIDDisplay"] {
   width: 5%;
+  column-width: 50px;
 }
-.date{
+td[class="date1"] {
   width: 15%;
+  column-width: 100px;
 }
-.hour{
-  width: 10%;
+td[class="hour1"] {
+  width: 5%;
+  column-width: 40px;
 }
-.teamA{
-  width: 20%;
-}
-.score{
+td[class="teamA1"] {
   width: 30%;
+  column-width: 300px;
 }
-.teamB{
-  width: 20%;
+td[class="score1"] {
+  width: 5%;
+  column-width: 10px;
+}
+
+input[class="score"] {
+  width: 50%;
+  column-width: 10px;
+}
+
+td[class="teamB1"] {
+  width: 30%;
+  column-width: 300px;
 }
 
 .rank{
@@ -164,7 +167,7 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid hotpink;
+  /* border: 2px solid hotpink; */
 }
 
 input:invalid {

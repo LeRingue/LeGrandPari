@@ -1,8 +1,23 @@
 document.addEventListener('keydown', logKey);
 
-const matchNumberList = ["matchID1", "matchID2", "matchID3", "matchID4", "matchID5", "matchID6", "matchID7", "matchID8", "matchID9", "matchID10", "matchID11", "matchID12"];
-const scoreAList = ["score1A", "score2A", "score3A", "score4A", "score5A", "score6A", "score7A", "score8A", "score9A", "score10A", "score11A", "score12A"];
-const scoreBList = ["score1B", "score2B", "score3B", "score4B", "score5B", "score6B", "score7B", "score8B", "score9B", "score10B", "score11B", "score12B"];
+const matchNumberList = ["matchID1", "matchID2", "matchID3", "matchID4", "matchID5", "matchID6",
+                          "matchID7", "matchID8", "matchID9", "matchID10", "matchID11", "matchID12",
+                          "matchID13", "matchID14", "matchID15", "matchID16", "matchID17", "matchID18",
+                          "matchID19", "matchID20", "matchID21", "matchID22", "matchID23", "matchID24",
+                          "matchID25", "matchID26", "matchID27", "matchID28", "matchID29", "matchID30",
+                          "matchID31", "matchID32", "matchID33", "matchID34", "matchID35", "matchID36"];
+const scoreAList = ["score1A", "score2A", "score3A", "score4A", "score5A", "score6A",
+                    "score7A", "score8A", "score9A", "score10A", "score11A", "score12A",
+                    "score13A", "score14A", "score15A", "score16A", "score17A", "score18A",
+                    "score19A", "score20A", "score21A", "score22A", "score23A", "score24A",
+                    "score25A", "score26A", "score27A", "score28A", "score29A", "score30A",
+                    "score31A", "score32A", "score33A", "score34A", "score35A", "score36A"];
+const scoreBList = ["score1B", "score2B", "score3B", "score4B", "score5B", "score6B",
+                    "score7B", "score8B", "score9B", "score10B", "score11B", "score12B",
+                    "score13B", "score14B", "score15B", "score16B", "score17B", "score18B",
+                    "score19B", "score20B", "score21B", "score22B", "score23B", "score24B",
+                    "score25B", "score26B", "score27B", "score28B", "score29B", "score30B",
+                    "score31B", "score32B", "score33B", "score34B", "score35B", "score36B"];
 const groupCompo = [['Groupe A', A1, A2, A3, A4],
                     ['Groupe B', B1, B2, B3, B4],
                     ['Groupe C', C1, C2, C3, C4],
@@ -11,10 +26,10 @@ const groupCompo = [['Groupe A', A1, A2, A3, A4],
                     ['Groupe F', F1, F2, F3, F4]];
 
 const GroupRankingInit = [
-  {'group' : '', 'rank' : 1, 'team' : A1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : '', 'rank' : 1, 'team' : A2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : '', 'rank' : 1, 'team' : A3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : '', 'rank' : 1, 'team' : A4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
+  {'group' : '', 'rank' : 1, 'team' : '', 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : '', 'rank' : 1, 'team' : '', 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : '', 'rank' : 1, 'team' : '', 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : '', 'rank' : 1, 'team' : '', 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
 
 let GroupARanking = [
@@ -25,13 +40,41 @@ let GroupARanking = [
 ];
 
 let GroupBRanking = [
-  {'group' : 'Groupe B', 'rank' : 1, 'team' : A1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : 'Groupe B', 'rank' : 1, 'team' : A2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : 'Groupe B', 'rank' : 1, 'team' : A3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
-  {'group' : 'Groupe B', 'rank' : 1, 'team' : A4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
+  {'group' : 'Groupe B', 'rank' : 1, 'team' : B1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe B', 'rank' : 1, 'team' : B2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe B', 'rank' : 1, 'team' : B3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe B', 'rank' : 1, 'team' : B4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
 
-const GroupRankingList = [GroupARanking, GroupBRanking];
+let GroupCRanking = [
+  {'group' : 'Groupe C', 'rank' : 1, 'team' : C1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe C', 'rank' : 1, 'team' : C2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe C', 'rank' : 1, 'team' : C3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe C', 'rank' : 1, 'team' : C4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
+];
+
+let GroupDRanking = [
+  {'group' : 'Groupe D', 'rank' : 1, 'team' : D1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe D', 'rank' : 1, 'team' : D2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe D', 'rank' : 1, 'team' : D3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe D', 'rank' : 1, 'team' : D4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
+];
+
+let GroupERanking = [
+  {'group' : 'Groupe E', 'rank' : 1, 'team' : E1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe E', 'rank' : 1, 'team' : E2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe E', 'rank' : 1, 'team' : E3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe E', 'rank' : 1, 'team' : E4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
+];
+
+let GroupFRanking = [
+  {'group' : 'Groupe F', 'rank' : 1, 'team' : F1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe F', 'rank' : 1, 'team' : F2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe F', 'rank' : 1, 'team' : F3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
+  {'group' : 'Groupe F', 'rank' : 1, 'team' : F4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
+];
+
+const GroupRankingList = [GroupARanking, GroupBRanking, GroupCRanking, GroupDRanking, GroupERanking, GroupFRanking];
 
 
 function UpdateGroupDisplay(Group) {
@@ -102,6 +145,130 @@ function UpdateGroupDisplay(Group) {
       r4BP = rB4BP;
       r4BM = rB4BM;
       r4GA = rB4GA;
+      break;
+    case 2:
+      GroupRanking = GroupCRanking;
+      rank1 = rankC1;
+      r1team = rC1team;
+      r1played = rC1played;
+      r1pts = rC1pts;
+      r1BP = rC1BP;
+      r1BM = rC1BM;
+      r1GA = rC1GA;
+      rank2 = rankC2;
+      r2team = rC2team;
+      r2played = rC2played;
+      r2pts = rC2pts;
+      r2BP = rC2BP;
+      r2BM = rC2BM;
+      r2GA = rC2GA;
+      rank3 = rankC3;
+      r3team = rC3team;
+      r3played = rC3played;
+      r3pts = rC3pts;
+      r3BP = rC3BP;
+      r3BM = rC3BM;
+      r3GA = rC3GA;
+      rank4 = rankC4;
+      r4team = rC4team;
+      r4played = rC4played;
+      r4pts = rC4pts;
+      r4BP = rC4BP;
+      r4BM = rC4BM;
+      r4GA = rC4GA;
+      break;
+    case 3:
+      GroupRanking = GroupDRanking;
+      rank1 = rankD1;
+      r1team = rD1team;
+      r1played = rD1played;
+      r1pts = rD1pts;
+      r1BP = rD1BP;
+      r1BM = rD1BM;
+      r1GA = rD1GA;
+      rank2 = rankD2;
+      r2team = rD2team;
+      r2played = rD2played;
+      r2pts = rD2pts;
+      r2BP = rD2BP;
+      r2BM = rD2BM;
+      r2GA = rD2GA;
+      rank3 = rankD3;
+      r3team = rD3team;
+      r3played = rD3played;
+      r3pts = rD3pts;
+      r3BP = rD3BP;
+      r3BM = rD3BM;
+      r3GA = rD3GA;
+      rank4 = rankD4;
+      r4team = rD4team;
+      r4played = rD4played;
+      r4pts = rD4pts;
+      r4BP = rD4BP;
+      r4BM = rD4BM;
+      r4GA = rD4GA;
+      break;
+    case 4:
+      GroupRanking = GroupERanking;
+      rank1 = rankE1;
+      r1team = rE1team;
+      r1played = rE1played;
+      r1pts = rE1pts;
+      r1BP = rE1BP;
+      r1BM = rE1BM;
+      r1GA = rE1GA;
+      rank2 = rankE2;
+      r2team = rE2team;
+      r2played = rE2played;
+      r2pts = rE2pts;
+      r2BP = rE2BP;
+      r2BM = rE2BM;
+      r2GA = rE2GA;
+      rank3 = rankE3;
+      r3team = rE3team;
+      r3played = rE3played;
+      r3pts = rE3pts;
+      r3BP = rE3BP;
+      r3BM = rE3BM;
+      r3GA = rE3GA;
+      rank4 = rankE4;
+      r4team = rE4team;
+      r4played = rE4played;
+      r4pts = rE4pts;
+      r4BP = rE4BP;
+      r4BM = rE4BM;
+      r4GA = rE4GA;
+      break;
+    case 5:
+      GroupRanking = GroupFRanking;
+      rank1 = rankF1;
+      r1team = rF1team;
+      r1played = rF1played;
+      r1pts = rF1pts;
+      r1BP = rF1BP;
+      r1BM = rF1BM;
+      r1GA = rF1GA;
+      rank2 = rankF2;
+      r2team = rF2team;
+      r2played = rF2played;
+      r2pts = rF2pts;
+      r2BP = rF2BP;
+      r2BM = rF2BM;
+      r2GA = rF2GA;
+      rank3 = rankF3;
+      r3team = rF3team;
+      r3played = rF3played;
+      r3pts = rF3pts;
+      r3BP = rF3BP;
+      r3BM = rF3BM;
+      r3GA = rF3GA;
+      rank4 = rankF4;
+      r4team = rF4team;
+      r4played = rF4played;
+      r4pts = rF4pts;
+      r4BP = rF4BP;
+      r4BM = rF4BM;
+      r4GA = rF4GA;
       break;
     }
   rank1.textContent = GroupRanking[0]['rank'];
@@ -206,6 +373,11 @@ function logKey(e) {
   // Reset GroupRanking
   ResetGroupRanking("A", GroupARanking);
   ResetGroupRanking("B", GroupBRanking);
+  ResetGroupRanking("C", GroupCRanking);
+  ResetGroupRanking("D", GroupDRanking);
+  ResetGroupRanking("E", GroupERanking);
+  ResetGroupRanking("F", GroupFRanking);
+
   // Check form entries that are set
   for (let num = 0; num < matchNumberList.length; num++){
     scoreA = scoreAList[num];
@@ -237,7 +409,18 @@ function logKey(e) {
         case 'Groupe B':
           indexGroup = 1;
           break;
-
+        case 'Groupe C':
+          indexGroup = 2;
+          break;
+        case 'Groupe D':
+          indexGroup = 3;
+          break;
+        case 'Groupe E':
+          indexGroup = 4;
+          break;
+        case 'Groupe F':
+          indexGroup = 5;
+          break;
       }
 
       // Populate MatchArray table with score
