@@ -24,58 +24,49 @@ const groupCompo = [['Groupe A', A1, A2, A3, A4],
                     ['Groupe D', D1, D2, D3, D4],
                     ['Groupe E', E1, E2, E3, E4],
                     ['Groupe F', F1, F2, F3, F4]];
-
 const GroupRankingInit = [
   {'group' : '', 'rank' : 1, 'team' : '', 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : '', 'rank' : 1, 'team' : '', 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : '', 'rank' : 1, 'team' : '', 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : '', 'rank' : 1, 'team' : '', 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
-
 let GroupARanking = [
   {'group' : 'Groupe A', 'rank' : 1, 'team' : A1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe A', 'rank' : 1, 'team' : A2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe A', 'rank' : 1, 'team' : A3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe A', 'rank' : 1, 'team' : A4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
-
 let GroupBRanking = [
   {'group' : 'Groupe B', 'rank' : 1, 'team' : B1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe B', 'rank' : 1, 'team' : B2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe B', 'rank' : 1, 'team' : B3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe B', 'rank' : 1, 'team' : B4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
-
 let GroupCRanking = [
   {'group' : 'Groupe C', 'rank' : 1, 'team' : C1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe C', 'rank' : 1, 'team' : C2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe C', 'rank' : 1, 'team' : C3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe C', 'rank' : 1, 'team' : C4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
-
 let GroupDRanking = [
   {'group' : 'Groupe D', 'rank' : 1, 'team' : D1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe D', 'rank' : 1, 'team' : D2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe D', 'rank' : 1, 'team' : D3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe D', 'rank' : 1, 'team' : D4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
-
 let GroupERanking = [
   {'group' : 'Groupe E', 'rank' : 1, 'team' : E1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe E', 'rank' : 1, 'team' : E2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe E', 'rank' : 1, 'team' : E3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe E', 'rank' : 1, 'team' : E4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
-
 let GroupFRanking = [
   {'group' : 'Groupe F', 'rank' : 1, 'team' : F1, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe F', 'rank' : 1, 'team' : F2, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe F', 'rank' : 1, 'team' : F3, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0},
   {'group' : 'Groupe F', 'rank' : 1, 'team' : F4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
-
 const GroupRankingList = [GroupARanking, GroupBRanking, GroupCRanking, GroupDRanking, GroupERanking, GroupFRanking];
-
 
 function UpdateGroupDisplay(Group) {
   let GroupRanking;
@@ -316,6 +307,42 @@ function ResetGroupRanking(group, GroupRanking){
   }
 }
 
+function DrawProcessing(GroupRanking, rank) {
+  let countRank = 0;
+  let GroupDraw = [
+    {'index' : 0, 'criterion1' : 0},
+    {'index' : 0, 'criterion1' : 0},
+    {'index' : 0, 'criterion1' : 0},
+    {'index' : 0, 'criterion1' : 0}
+  ];
+  // for (rank = 1; rank < GroupRanking.length; rank++) {
+    for (let i = 0; i < GroupRanking.length; i++){
+      if (GroupRanking[i]['rank'] == rank){
+        GroupDraw[countRank]['index'] = i;
+        countRank += 1;
+      }
+    }
+  // }
+  if (countRank > 1){
+    for (let j = 0; j < countRank; j++){
+      GroupDraw[j]['criterion1'] =  1000 * GroupRanking[GroupDraw[j]['index']]['pts'] +
+                                  100 * GroupRanking[GroupDraw[j]['index']]['GA'] +
+                                  GroupRanking[GroupDraw[j]['index']]['BP'];
+    }
+    for (let i = 0; i < countRank; i++){
+      for (let j = 0; j < countRank; j++){
+        if (i == j){
+          continue;
+        }
+        if (GroupDraw[i]['criterion1'] < GroupDraw[j]['criterion1']) {
+          GroupRanking[GroupDraw[i]['index']]['rank'] += 1;
+        }
+      }
+    }
+  }
+  return countRank;
+}
+
 function ComputeRank(GroupRanking){
   // Check First
   for (let i = 0; i < GroupRanking.length; i++){
@@ -329,25 +356,24 @@ function ComputeRank(GroupRanking){
     }
   }
   // Is there a draw for first place?
-  let countFirst = 0;
-  for (let i = 0; i < GroupRanking.length; i++){
-      if (GroupRanking[i]['rank'] == 1){
-        countFirst += 1;
-      }
-  }
-  switch(countFirst){
-    case 1:
-      break;
-    case 2:
+  DrawProcessing(GroupRanking, 1);
+  DrawProcessing(GroupRanking, 2);
+  DrawProcessing(GroupRanking, 3);
+  DrawProcessing(GroupRanking, 4);
 
-      break;
-    case 3:
-
-      break;
-    case 4:
-
-      break;
-  }
+  // switch(countFirst){
+  //   case 1:
+  //     break;
+  //   case 2:
+  //
+  //     break;
+  //   case 3:
+  //
+  //     break;
+  //   case 4:
+  //
+  //     break;
+  // }
 }
 
   // samepts = [1:2, 1:3, 1:4, 2:3, 2:4, 3:4]
@@ -465,7 +491,6 @@ function logKey(e) {
   }
 
   // Update text to display
-  // let index = 0;
   for (let i = 0; i < GroupRankingList.length; i++) {
     UpdateGroupDisplay(i);
   }
