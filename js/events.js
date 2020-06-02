@@ -74,6 +74,7 @@ function UpdateGroupDisplay(Group) {
   let rank2, r2team, r2played, r2pts, r2BP, r2BM, r2GA;
   let rank3, r3team, r3played, r3pts, r3BP, r3BM, r3GA;
   let rank4, r4team, r4played, r4pts, r4BP, r4BM, r4GA;
+  let rankidx = [0, 1, 2, 3];
   switch (Group) {
     case 0:
       GroupRanking = GroupARanking;
@@ -262,34 +263,47 @@ function UpdateGroupDisplay(Group) {
       r4GA = rF4GA;
       break;
     }
-  rank1.textContent = GroupRanking[0]['rank'];
-  r1team.textContent = GroupRanking[0]['team'];
-  r1played.textContent = GroupRanking[0]['played'];
-  r1pts.textContent = GroupRanking[0]['pts'];
-  r1BP.textContent = GroupRanking[0]['BP'];
-  r1BM.textContent = GroupRanking[0]['BM'];
-  r1GA.textContent = GroupRanking[0]['GA'];
-  rank2.textContent = GroupRanking[1]['rank'];
-  r2team.textContent = GroupRanking[1]['team'];
-  r2played.textContent = GroupRanking[1]['played'];
-  r2pts.textContent = GroupRanking[1]['pts'];
-  r2BP.textContent = GroupRanking[1]['BP'];
-  r2BM.textContent = GroupRanking[1]['BM'];
-  r2GA.textContent = GroupRanking[1]['GA'];
-  rank3.textContent = GroupRanking[2]['rank'];
-  r3team.textContent = GroupRanking[2]['team'];
-  r3played.textContent = GroupRanking[2]['played'];
-  r3pts.textContent = GroupRanking[2]['pts'];
-  r3BP.textContent = GroupRanking[2]['BP'];
-  r3BM.textContent = GroupRanking[2]['BM'];
-  r3GA.textContent = GroupRanking[2]['GA'];
-  rank4.textContent = GroupRanking[3]['rank'];
-  r4team.textContent = GroupRanking[3]['team'];
-  r4played.textContent = GroupRanking[3]['played'];
-  r4pts.textContent = GroupRanking[3]['pts'];
-  r4BP.textContent = GroupRanking[3]['BP'];
-  r4BM.textContent = GroupRanking[3]['BM'];
-  r4GA.textContent = GroupRanking[3]['GA'];
+
+  // Display Rank
+  //------------------------------------------------------------------------------------------------
+  // ToDo: careful in case of draw (first keystroke => all teams are first)
+  //------------------------------------------------------------------------------------------------
+
+  for (let ranknb = 1; ranknb <GroupRanking.length + 1; ranknb++){
+    for (let i = 0; i < GroupRanking.length; i++){
+      if (GroupRanking[i]['rank'] == ranknb){
+        rankidx[ranknb-1] = i;
+      }
+    }
+  }
+  rank1.textContent = GroupRanking[rankidx[0]]['rank'];
+  r1team.textContent = GroupRanking[rankidx[0]]['team'];
+  r1played.textContent = GroupRanking[rankidx[0]]['played'];
+  r1pts.textContent = GroupRanking[rankidx[0]]['pts'];
+  r1BP.textContent = GroupRanking[rankidx[0]]['BP'];
+  r1BM.textContent = GroupRanking[rankidx[0]]['BM'];
+  r1GA.textContent = GroupRanking[rankidx[0]]['GA'];
+  rank2.textContent = GroupRanking[rankidx[1]]['rank'];
+  r2team.textContent = GroupRanking[rankidx[1]]['team'];
+  r2played.textContent = GroupRanking[rankidx[1]]['played'];
+  r2pts.textContent = GroupRanking[rankidx[1]]['pts'];
+  r2BP.textContent = GroupRanking[rankidx[1]]['BP'];
+  r2BM.textContent = GroupRanking[rankidx[1]]['BM'];
+  r2GA.textContent = GroupRanking[rankidx[1]]['GA'];
+  rank3.textContent = GroupRanking[rankidx[2]]['rank'];
+  r3team.textContent = GroupRanking[rankidx[2]]['team'];
+  r3played.textContent = GroupRanking[rankidx[2]]['played'];
+  r3pts.textContent = GroupRanking[rankidx[2]]['pts'];
+  r3BP.textContent = GroupRanking[rankidx[2]]['BP'];
+  r3BM.textContent = GroupRanking[rankidx[2]]['BM'];
+  r3GA.textContent = GroupRanking[rankidx[2]]['GA'];
+  rank4.textContent = GroupRanking[rankidx[3]]['rank'];
+  r4team.textContent = GroupRanking[rankidx[3]]['team'];
+  r4played.textContent = GroupRanking[rankidx[3]]['played'];
+  r4pts.textContent = GroupRanking[rankidx[3]]['pts'];
+  r4BP.textContent = GroupRanking[rankidx[3]]['BP'];
+  r4BM.textContent = GroupRanking[rankidx[3]]['BM'];
+  r4GA.textContent = GroupRanking[rankidx[3]]['GA'];
 }
 
 function ResetGroupRanking(group, GroupRanking){
@@ -315,6 +329,10 @@ function DrawProcessing(GroupRanking, rank) {
     {'index' : 0, 'criterion1' : 0},
     {'index' : 0, 'criterion1' : 0}
   ];
+  //------------------------------------------------------------------------------------------------
+  // ToDo: use actural rules!!!!
+  //------------------------------------------------------------------------------------------------
+
   // for (rank = 1; rank < GroupRanking.length; rank++) {
     for (let i = 0; i < GroupRanking.length; i++){
       if (GroupRanking[i]['rank'] == rank){
@@ -355,45 +373,12 @@ function ComputeRank(GroupRanking){
       }
     }
   }
-  // Is there a draw for first place?
+  // Are there draws?
   DrawProcessing(GroupRanking, 1);
   DrawProcessing(GroupRanking, 2);
   DrawProcessing(GroupRanking, 3);
   DrawProcessing(GroupRanking, 4);
-
-  // switch(countFirst){
-  //   case 1:
-  //     break;
-  //   case 2:
-  //
-  //     break;
-  //   case 3:
-  //
-  //     break;
-  //   case 4:
-  //
-  //     break;
-  // }
 }
-
-  // samepts = [1:2, 1:3, 1:4, 2:3, 2:4, 3:4]
-  // let samepts =  [[0, 0, 0, 0],
-  //                 [0, 0, 0, 0],
-  //                 [0, 0, 0, 0]];
-  // for (i1 = 0; i < GroupRanking.length; i++){
-  //   for (i2 = 0; i < GroupRanking.length; i++){
-  //     if (GroupRanking[i1]['pts'] == GroupRanking[i2]['pts']){
-  //       samepts[i1][i2] = 1;
-  //     }
-  //   }
-  // }
-  // for (i = 0; i < GroupRanking.length; i++){
-  //   if (GroupRanking[0]['pts'] < GroupRanking[0+i]['pts']){
-  //     GroupRanking[0]['pts'] += 1;
-  //   }
-  // }
-//
-// }
 
 function logKey(e) {
   // Reset GroupRanking
@@ -494,13 +479,4 @@ function logKey(e) {
   for (let i = 0; i < GroupRankingList.length; i++) {
     UpdateGroupDisplay(i);
   }
-
-
-
-
-  // rank3.textContent = scoreA;
-  // r3team.textContent = scoreB;
-  //
-  // rank4.textContent = matchNumberList.length;
-  // r4team.textContent = Globo;//GroupRanking[3]['team'];
 }
