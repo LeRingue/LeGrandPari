@@ -116,11 +116,11 @@ main>section{
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  align-content: center;
+  align-content: flex-start;
   width: 25%;
   height: 100%;
   /* column-width: 50px; */
-  border: 2px solid pink;
+  border: 2px solid darkblue;
 }
 
 div{
@@ -129,21 +129,48 @@ div{
   justify-content: flex-start;
   align-items: flex-start;
   align-content: center;
-  width: 80%;
+  width: 35%;
   height: 8%;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 div[class="score"]{
-  display: flex;
+  /* display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  align-content: center;
-  width: 20%;
+  align-content: center; */
+  width: 8%;
   height: 8%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
+
+div[class="dash"]{
+  width: 5%;
+}
+
+
+div[class="FillerOf8"]{
+  width: 100%;
+  font-size: 1.25rem;
+  height: 5%;
+  /* border: 2px solid pink; */
+}
+
+div[class="F8ID"] {
+  width: 8%;
+  /* font-size: 1rem; */
+}
+
+div[class="FillerOf4"]{
+  width: 100%;
+  font-size: 1.25rem;
+  /* border: 2px solid pink; */
+  height: 10%;
+
+  vertical-align: top;
+}
+
 td[class="matchIDDisplay"] {
   width: 5%;
   column-width: 50px;
