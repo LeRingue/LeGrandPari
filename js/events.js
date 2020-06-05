@@ -67,6 +67,7 @@ let GroupFRanking = [
   {'group' : 'Groupe F', 'rank' : 1, 'team' : F4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
 const GroupRankingList = [GroupARanking, GroupBRanking, GroupCRanking, GroupDRanking, GroupERanking, GroupFRanking];
+// const RoundOf8Population = [score82A, score88A, ,score88B, ];
 
 function UpdateGroupDisplay(Group) {
   let GroupRanking;
@@ -380,6 +381,15 @@ function ComputeRank(GroupRanking){
   DrawProcessing(GroupRanking, 4);
 }
 
+function IsGroupCompleted(GroupRanking){
+  // Check if all teams have played 3 games (12 in total)
+  let games = GroupRanking[0]['played'] +
+              GroupRanking[1]['played'] +
+              GroupRanking[2]['played'] +
+              GroupRanking[3]['played'];
+  return (games == 12) ? true : false;
+}
+
 function logKey(e) {
   // Reset GroupRanking
   ResetGroupRanking("A", GroupARanking);
@@ -478,5 +488,22 @@ function logKey(e) {
   // Update text to display
   for (let i = 0; i < GroupRankingList.length; i++) {
     UpdateGroupDisplay(i);
+  }
+
+  // Round of 8: check groups that are completed
+  let GroupCompleted = 0;
+  for (let i=0; i<GroupRankingList.length;i++){
+    if (IsGroupCompleted(GroupRankingList[i])){
+      GroupCompleted++;
+      // document.getElementById(score82A).value =
+      //let team = RoundOf8Team[i];
+
+
+      // Rank 3rd of all groups and define qualified for Round of 8
+      if (GroupCompleted == GroupRankingList.length){
+        // TODO:
+
+      }
+    }
   }
 }

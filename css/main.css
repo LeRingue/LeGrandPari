@@ -123,6 +123,33 @@ main>section{
   border: 2px solid darkblue;
 }
 
+.Finale{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 25%;
+  height: 45vh;
+  /* column-width: 50px; */
+  border: 2px solid darkblue;
+}
+
+.Stricker{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  width: 25%;
+  height: 10vh;
+  position: fixed;
+  top: 85vh;
+  left: 75%;
+  /* column-width: 50px; */
+  border: 2px solid darkblue;
+}
+
 div{
   display: flex;
   flex-flow: column wrap;
@@ -142,6 +169,13 @@ div[class="score"]{
   align-content: center; */
   width: 8%;
   height: 8%;
+  /* border: 2px solid red; */
+}
+
+div[class="Strick"]{
+  align-content: flex-end;
+  width: 60%;
+  height: 10%;
   /* border: 2px solid red; */
 }
 
@@ -238,4 +272,8 @@ footer{
 
 input:invalid {
   box-shadow: 0 0 5px 1px red;
+}
+
+input[class="StrickInput"]{
+  width: 100%;
 }
