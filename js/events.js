@@ -67,7 +67,9 @@ let GroupFRanking = [
   {'group' : 'Groupe F', 'rank' : 1, 'team' : F4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
 const GroupRankingList = [GroupARanking, GroupBRanking, GroupCRanking, GroupDRanking, GroupERanking, GroupFRanking];
-// const RoundOf8Population = [score82A, score88A, ,score88B, ];
+const RoundOf16Score = ['score81A', 'score81B', 'score82A', 'score82B', 'score83A', 'score83B', 'score84A', 'score84B', 'score85A', 'score85B', 'score86A', 'score86B', 'score87A', 'score87B', 'score88A', 'score88B'];
+const RoundOf16Team = ['Ro16B1', 'Ro16ADEF3', 'Ro16A1', 'Ro16C2', 'Ro16F1', 'Ro16ABC3', 'Ro16D2', 'Ro16E2', 'Ro16E1', 'Ro16ABCD3', 'Ro16D1', 'Ro16F2', 'Ro16C1', 'Ro16DEF3', 'Ro16A2', 'Ro16B2'];
+const RoundOf16Winner = ['Ro81', 'Ro82', 'Ro83', 'Ro84', 'Ro85', 'Ro86', 'Ro87', 'Ro88'];
 
 function UpdateGroupDisplay(Group) {
   let GroupRanking;
@@ -390,6 +392,79 @@ function IsGroupCompleted(GroupRanking){
   return (games == 12) ? true : false;
 }
 
+function GroupToRoundOf16(Group, GroupRanking){
+  // Identify first 2 teams and populate Round of 8
+  let div1, div2;
+  let idxFirst, idxSecond;
+  // Identify first
+  for (let i = 0; i < GroupRanking.length; i++){
+    if (GroupRanking[i]['rank'] == 1){
+      idxFirst = i;
+      break;
+    }
+  }
+  // Identify Second
+  for (let i = 0; i < GroupRanking.length; i++){
+    if (GroupRanking[i]['rank'] == 2){
+      idxSecond = i;
+      break;
+    }
+  }
+
+  switch (Group) {
+    case 0:
+      document.getElementById('Ro16A1').textContent = GroupRanking[idxFirst]['team'];
+      document.getElementById('Ro16A2').textContent = GroupRanking[idxSecond]['team'];
+      break;
+    case 1:
+      document.getElementById('Ro16B1').textContent = GroupRanking[idxFirst]['team'];
+      document.getElementById('Ro16B2').textContent = GroupRanking[idxSecond]['team'];
+      break;
+    case 2:
+      document.getElementById('Ro16C1').textContent = GroupRanking[idxFirst]['team'];
+      document.getElementById('Ro16C2').textContent = GroupRanking[idxSecond]['team'];
+      break;
+    case 3:
+      document.getElementById('Ro16D1').textContent = GroupRanking[idxFirst]['team'];
+      document.getElementById('Ro16D2').textContent = GroupRanking[idxSecond]['team'];
+      break;
+    case 4:
+      document.getElementById('Ro16E1').textContent = GroupRanking[idxFirst]['team'];
+      document.getElementById('Ro16E2').textContent = GroupRanking[idxSecond]['team'];
+      break;
+    case 5:
+      document.getElementById('Ro16F1').textContent = GroupRanking[idxFirst]['team'];
+      document.getElementById('Ro16F2').textContent = GroupRanking[idxSecond]['team'];
+      break;
+    }
+}
+
+function RoundOf16ToRoundOf8(){
+  let score1, score2;
+  let score1El, score2El;
+  let winner;
+  let winnerEl;
+  // Check Round of 16 match by matchID
+  for (let i = 0; i < RoundOf16Score.length / 2; i++){
+    score1El = RoundOf16Score[2*i];
+    score2El = RoundOf16Score[2*i + 1];
+    if ((document.getElementById(score1El).value != "") && (document.getElementById(score2El).value != "")){
+      score1 = parseInt(document.getElementById(score1El).value, 10);
+      score2 = parseInt(document.getElementById(score2El).value, 10);
+      if (score1 > score2){
+        winnerEl = document.getElementById(RoundOf16Team[2*i]).textContent;
+      } else if (score1 < score2){
+        winnerEl = document.getElementById(RoundOf16Team[2*i + 1]).textContent;
+      } else {
+        // Todo: Pop-Up window to ask winner of the penalty session
+        // Temporary, first team wins
+        winnerEl = document.getElementById(RoundOf16Team[2*i]).textContent;
+      }
+    document.getElementById(RoundOf16Winner[i]).textContent = winnerEl;
+    }
+  }
+}
+
 function logKey(e) {
   // Reset GroupRanking
   ResetGroupRanking("A", GroupARanking);
@@ -490,20 +565,26 @@ function logKey(e) {
     UpdateGroupDisplay(i);
   }
 
-  // Round of 8: check groups that are completed
+  // Round of 16: check groups that are completed
   let GroupCompleted = 0;
-  for (let i=0; i<GroupRankingList.length;i++){
+  for (let i = 0; i < GroupRankingList.length; i++){
     if (IsGroupCompleted(GroupRankingList[i])){
       GroupCompleted++;
-      // document.getElementById(score82A).value =
-      //let team = RoundOf8Team[i];
+      GroupToRoundOf16(i, GroupRankingList[i]);
+    }
 
+    // Rank 3rd of all groups and define qualified for Round of 8
+    if (GroupCompleted == GroupRankingList.length){
+    // TODO:
 
-      // Rank 3rd of all groups and define qualified for Round of 8
-      if (GroupCompleted == GroupRankingList.length){
-        // TODO:
+    // Round of 16 to Round of 8
+    RoundOf16ToRoundOf8();
 
-      }
+    // Round of 8 to Round of 4
+    // RoundOf8ToRoundOf4();
+
+    // Round of 4 to Final
+    // RoundOf4ToFinal();
     }
   }
 }
