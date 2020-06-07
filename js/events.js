@@ -67,9 +67,18 @@ let GroupFRanking = [
   {'group' : 'Groupe F', 'rank' : 1, 'team' : F4, 'played' : 0, 'pts' : 0, 'BP' : 0, 'BM' : 0, 'GA' : 0}
 ];
 const GroupRankingList = [GroupARanking, GroupBRanking, GroupCRanking, GroupDRanking, GroupERanking, GroupFRanking];
-const RoundOf16Score = ['score81A', 'score81B', 'score82A', 'score82B', 'score83A', 'score83B', 'score84A', 'score84B', 'score85A', 'score85B', 'score86A', 'score86B', 'score87A', 'score87B', 'score88A', 'score88B'];
+
+const RoundOf16Score = ['scoreRo161A', 'scoreRo161B', 'scoreRo162A', 'scoreRo162B', 'scoreRo163A', 'scoreRo163B', 'scoreRo164A', 'scoreRo164B', 'scoreRo165A', 'scoreRo165B', 'scoreRo166A', 'scoreRo166B', 'scoreRo167A', 'scoreRo167B', 'scoreRo168A', 'scoreRo168B'];
 const RoundOf16Team = ['Ro16B1', 'Ro16ADEF3', 'Ro16A1', 'Ro16C2', 'Ro16F1', 'Ro16ABC3', 'Ro16D2', 'Ro16E2', 'Ro16E1', 'Ro16ABCD3', 'Ro16D1', 'Ro16F2', 'Ro16C1', 'Ro16DEF3', 'Ro16A2', 'Ro16B2'];
 const RoundOf16Winner = ['Ro81', 'Ro82', 'Ro83', 'Ro84', 'Ro85', 'Ro86', 'Ro87', 'Ro88'];
+
+const RoundOf8Score = ['scoreRo81A', 'scoreRo81B', 'scoreRo82A', 'scoreRo82B', 'scoreRo83A', 'scoreRo83B', 'scoreRo84A', 'scoreRo84B'];
+const RoundOf8Team = ['Ro81', 'Ro82', 'Ro83', 'Ro84', 'Ro85', 'Ro86', 'Ro87', 'Ro88'];
+const RoundOf8Winner = ['Ro41', 'Ro42', 'Ro43', 'Ro44'];
+
+const RoundOf4Score = ['scoreRo41A', 'scoreRo41B', 'scoreRo42A', 'scoreRo42B'];
+const RoundOf4Team = ['Ro41', 'Ro42', 'Ro43', 'Ro44'];
+const RoundOf4Winner = ['Ro21', 'Ro22'];
 
 function UpdateGroupDisplay(Group) {
   let GroupRanking;
@@ -439,28 +448,47 @@ function GroupToRoundOf16(Group, GroupRanking){
     }
 }
 
-function RoundOf16ToRoundOf8(){
+function RoundOfXToRoundOfY(RoundOfX){
   let score1, score2;
   let score1El, score2El;
-  let winner;
+  let RoundOfXTeam;
+  let RoundOfXScore;
+  let RoundOfXWinner;
   let winnerEl;
-  // Check Round of 16 match by matchID
-  for (let i = 0; i < RoundOf16Score.length / 2; i++){
-    score1El = RoundOf16Score[2*i];
-    score2El = RoundOf16Score[2*i + 1];
+  switch(RoundOfX){
+    case 16:
+    RoundOfXScore = RoundOf16Score;
+    RoundOfXTeam = RoundOf16Team;
+    RoundOfXWinner = RoundOf16Winner;
+    break;
+    case 8:
+    RoundOfXScore = RoundOf8Score;
+    RoundOfXTeam = RoundOf8Team;
+    RoundOfXWinner = RoundOf8Winner;
+    break;
+    case 4:
+    RoundOfXScore = RoundOf4Score;
+    RoundOfXTeam = RoundOf4Team;
+    RoundOfXWinner = RoundOf4Winner;
+    break;
+  }
+  // Check Round of X match by matchID
+  for (let i = 0; i < RoundOfXScore.length / 2; i++){
+    score1El = RoundOfXScore[2*i];
+    score2El = RoundOfXScore[2*i + 1];
     if ((document.getElementById(score1El).value != "") && (document.getElementById(score2El).value != "")){
       score1 = parseInt(document.getElementById(score1El).value, 10);
       score2 = parseInt(document.getElementById(score2El).value, 10);
       if (score1 > score2){
-        winnerEl = document.getElementById(RoundOf16Team[2*i]).textContent;
+        winnerEl = document.getElementById(RoundOfXTeam[2*i]).textContent;
       } else if (score1 < score2){
-        winnerEl = document.getElementById(RoundOf16Team[2*i + 1]).textContent;
+        winnerEl = document.getElementById(RoundOfXTeam[2*i + 1]).textContent;
       } else {
         // Todo: Pop-Up window to ask winner of the penalty session
         // Temporary, first team wins
-        winnerEl = document.getElementById(RoundOf16Team[2*i]).textContent;
+        winnerEl = document.getElementById(RoundOfXTeam[2*i]).textContent;
       }
-    document.getElementById(RoundOf16Winner[i]).textContent = winnerEl;
+    document.getElementById(RoundOfXWinner[i]).textContent = winnerEl;
     }
   }
 }
@@ -572,19 +600,22 @@ function logKey(e) {
       GroupCompleted++;
       GroupToRoundOf16(i, GroupRankingList[i]);
     }
+  }
 
-    // Rank 3rd of all groups and define qualified for Round of 8
     if (GroupCompleted == GroupRankingList.length){
     // TODO:
+    // Rank 3rd of all groups and define qualified for Round of 8
 
-    // Round of 16 to Round of 8
-    RoundOf16ToRoundOf8();
-
-    // Round of 8 to Round of 4
-    // RoundOf8ToRoundOf4();
-
-    // Round of 4 to Final
-    // RoundOf4ToFinal();
     }
-  }
+
+  // Round of 16 to Round of 8
+  RoundOfXToRoundOfY(16);
+
+  // Round of 8 to Round of 4
+  RoundOfXToRoundOfY(8);
+
+  // TODO: Check if Round of 4 is Over
+
+  // Round of 4 to Final
+  RoundOfXToRoundOfY(4);
 }
