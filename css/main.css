@@ -100,7 +100,7 @@ main>section{
   position: fixed;
   top: 40vh;
   width: 100%;
-  height: 55vh;
+  height: 50vh;
   /* border: 2px solid orange; */
 }
 
@@ -130,7 +130,10 @@ main>section{
   align-items: flex-start;
   align-content: flex-start;
   width: 25%;
-  height: 45vh;
+  height: 40vh;
+  position: fixed;
+  top: 40vh;
+  left: 75%;
   /* column-width: 50px; */
   border: 2px solid darkblue;
 }
@@ -144,10 +147,29 @@ main>section{
   width: 25%;
   height: 10vh;
   position: fixed;
-  top: 85vh;
+  top: 80vh;
   left: 75%;
   /* column-width: 50px; */
   border: 2px solid darkblue;
+}
+
+.validation{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 5vh;
+  position: fixed;
+  top: 90vh;
+  left: 0%;
+  /* column-width: 50px; */
+  /* border: 2px solid darkblue; */
+}
+
+button{
+  display: none;
 }
 
 div{

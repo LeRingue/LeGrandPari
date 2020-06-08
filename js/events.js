@@ -80,6 +80,11 @@ const RoundOf4Score = ['scoreRo41A', 'scoreRo41B', 'scoreRo42A', 'scoreRo42B'];
 const RoundOf4Team = ['Ro41', 'Ro42', 'Ro43', 'Ro44'];
 const RoundOf4Winner = ['Ro21', 'Ro22'];
 
+const FormComplete = ['score1A', 'score1B', 'score2A', 'score2B', 'score3A', 'score3B', 'score4A', 'score4B', 'score5A', 'score5B', 'score6A', 'score6B', 'score7A', 'score7B', 'score8A', 'score8B', 'score9A', 'score9B', 'score10A', 'score10B',
+                      'score11A', 'score11B', 'score12A', 'score12B', 'score13A', 'score13B', 'score14A', 'score14B', 'score15A', 'score15B', 'score16A', 'score16B', 'score17A', 'score17B', 'score18A', 'score18B', 'score19A', 'score19B', 'score20A', 'score20B',
+                      'score21A', 'score21B', 'score22A', 'score22B', 'score23A', 'score23B', 'score24A', 'score24B', 'score25A', 'score25B', 'score26A', 'score26B', 'score27A', 'score27B', 'score28A', 'score28B', 'score29A', 'score29B', 'score30A', 'score30B',
+                      'score31A', 'score31B', 'score32A', 'score32B', 'score33A', 'score33B', 'score34A', 'score34B', 'score35A', 'score35B', 'score36A', 'score36B'];
+
 function UpdateGroupDisplay(Group) {
   let GroupRanking;
   let rank1, r1team, r1played, r1pts, r1BP, r1BM, r1GA;
@@ -493,6 +498,16 @@ function RoundOfXToRoundOfY(RoundOfX){
   }
 }
 
+function IsFormComplete(){
+  // Parse all form elements
+  for (let i = 0; i < FormComplete.length; i++){
+    if (document.getElementById(FormComplete[i]).value == ""){
+      return false;
+    }
+  }
+  return true;
+}
+
 function logKey(e) {
   // Reset GroupRanking
   ResetGroupRanking("A", GroupARanking);
@@ -614,8 +629,14 @@ function logKey(e) {
   // Round of 8 to Round of 4
   RoundOfXToRoundOfY(8);
 
-  // TODO: Check if Round of 4 is Over
-
   // Round of 4 to Final
   RoundOfXToRoundOfY(4);
+
+  // Add Validate button if form is complete
+  if (IsFormComplete()){
+    // Show Validation button
+    // document.getElementById('validation').display = 'flex';
+
+    
+  }
 }
