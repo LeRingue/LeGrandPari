@@ -172,6 +172,13 @@ button{
   display: none;
 }
 
+h1{
+  position: fixed;
+  top: 0vh;
+  left: 0vh;
+
+}
+
 div{
   display: flex;
   flex-flow: column wrap;

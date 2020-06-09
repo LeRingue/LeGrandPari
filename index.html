@@ -8,8 +8,9 @@
   <title>Le Grand Pari 9 - Euro 2020</title>
 </head>
 <body>
-  <form action="/my-handling-form-page" method="post">
   <header>Le Grand Pari 9 - Euro 2020</header>
+  <!-- <form action="js/submit.js" method="post"> -->
+  <form>
     <main>
       <nav>
         <!-- Groupe A -->
@@ -914,7 +915,6 @@
           <div class="FillerOf4"></div>
           <div class="FillerOf4"></div>
           <div class="FillerOf4"></div>
-          <!-- <div class="FillerOf4"></div> -->
           <div class="F8ID">51</div>
           <div id="Ro21">Vainqueur 49</div>
           <div class="dash">-</div>
@@ -931,16 +931,18 @@
         <label for="name">Nom :</label>
         <input type="text" id="name" name="name">
         <label for="email">email :</label>
-        <input type="text" id="email" name="email">
-        <button type="submit">Valider mon pronostic</button>
+        <input type="email" id="email" name="email">
+        <!-- <button id="validation" type="submit">Valider mon pronostic</button> -->
+        <button id="validation" onclick="submit_form()">Valider mon pronostic</button>
       </section>
 
     </main>
-    <footer>
-      <p>All rights reserved LeGrandPari</p>
-    </footer>
   </form>
+  <footer>
+    <p>All rights reserved LeGrandPari</p>
+  </footer>
   <script type="text/javascript" src="js/static.js"></script>
   <script type="text/javascript" src="js/events.js"></script>
+  <script type="text/javascript" src="js/submit.js"></script>
 </body>
 </html>
