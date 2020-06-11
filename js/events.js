@@ -85,16 +85,17 @@ const RoundOf4Winner = ['Ro21', 'Ro22'];
 //                       'score21A', 'score21B', 'score22A', 'score22B', 'score23A', 'score23B', 'score24A', 'score24B', 'score25A', 'score25B', 'score26A', 'score26B', 'score27A', 'score27B', 'score28A', 'score28B', 'score29A', 'score29B', 'score30A', 'score30B',
 //                       'score31A', 'score31B', 'score32A', 'score32B', 'score33A', 'score33B', 'score34A', 'score34B', 'score35A', 'score35B', 'score36A', 'score36B'];
 
-const FormComplete = ["score1A", "score1B", "score2A", "score2B", "score3A", "score3B", "score4A", "score4B", "score5A", "score5B", "score6A", "score6B", "score7A", "score7B", "score8A", "score8B", "score9A", "score9B", "score10A", "score10B",
-                          "score11A", "score11B", "score12A", "score12B", "score13A", "score13B", "score14A", "score14B", "score15A", "score15B", "score16A", "score16B", "score17A", "score17B", "score18A", "score18B", "score19A", "score19B", "score20A", "score20B",
-                          "score21A", "score21B", "score22A", "score22B", "score23A", "score23B", "score24A", "score24B", "score25A", "score25B", "score26A", "score26B", "score27A", "score27B", "score28A", "score28B", "score29A", "score29B", "score30A", "score30B",
-                          "score31A", "score31B", "score32A", "score2B", "score33A", "score33B", "score34A", "score34B", "score35A", "score35B", "score36A", "score36B",
-                          "scoreRo161A", "scoreRo161B", "scoreRo162A", "scoreRo162B", "scoreRo163A", "scoreRo163B", "scoreRo164A", "scoreRo164B", "scoreRo165A", "scoreRo165B", "scoreRo166A", "scoreRo166B", "scoreRo167A", "scoreRo167B", "scoreRo168A", "scoreRo168B",
-                          "scoreRo81A", "scoreRo81B", "scoreRo82A", "scoreRo82B", "scoreRo83A", "scoreRo83B", "scoreRo84A", "scoreRo84B",
-                          "scoreRo41A", "scoreRo41B", "scoreRo42A", "scoreRo42B",
-                          "scoreFinalA", "scoreFinalB",
-                          "name", "email"];
-
+// const FormComplete = ["score1A", "score1B", "score2A", "score2B", "score3A", "score3B", "score4A", "score4B", "score5A", "score5B", "score6A", "score6B", "score7A", "score7B", "score8A", "score8B", "score9A", "score9B", "score10A", "score10B",
+//                           "score11A", "score11B", "score12A", "score12B", "score13A", "score13B", "score14A", "score14B", "score15A", "score15B", "score16A", "score16B", "score17A", "score17B", "score18A", "score18B", "score19A", "score19B", "score20A", "score20B",
+//                           "score21A", "score21B", "score22A", "score22B", "score23A", "score23B", "score24A", "score24B", "score25A", "score25B", "score26A", "score26B", "score27A", "score27B", "score28A", "score28B", "score29A", "score29B", "score30A", "score30B",
+//                           "score31A", "score31B", "score32A", "score2B", "score33A", "score33B", "score34A", "score34B", "score35A", "score35B", "score36A", "score36B",
+//                           "scoreRo161A", "scoreRo161B", "scoreRo162A", "scoreRo162B", "scoreRo163A", "scoreRo163B", "scoreRo164A", "scoreRo164B", "scoreRo165A", "scoreRo165B", "scoreRo166A", "scoreRo166B", "scoreRo167A", "scoreRo167B", "scoreRo168A", "scoreRo168B",
+//                           "scoreRo81A", "scoreRo81B", "scoreRo82A", "scoreRo82B", "scoreRo83A", "scoreRo83B", "scoreRo84A", "scoreRo84B",
+//                           "scoreRo41A", "scoreRo41B", "scoreRo42A", "scoreRo42B",
+//                           "scoreFinalA", "scoreFinalB",
+//                           "name", "email"];
+const FormComplete = ["name", "email"];
+1
 function UpdateGroupDisplay(Group) {
   let GroupRanking;
   let rank1, r1team, r1played, r1pts, r1BP, r1BM, r1GA;
@@ -518,6 +519,14 @@ function IsFormComplete(){
   return true;
 }
 
+function IsFileLoaded(){
+  let file_loaded = document.getElementById('file-selector');
+  if(file_loaded.files.length == 0){
+    return false;
+  }
+  return true;
+}
+
 function logKey(e) {
   // Reset GroupRanking
   ResetGroupRanking("A", GroupARanking);
@@ -643,14 +652,13 @@ function logKey(e) {
   RoundOfXToRoundOfY(4);
 
   // Add Validate button if form is complete
-  let show = 'none';
+  let show = false;
   if (IsFormComplete()){
     // Show Validation button
-    show = 'flex';
+    show = false;
   } else {
-    // Hide Validatino button
-    show = 'none';
+    // Hide Validation button
+    show = true;
   }
-  document.getElementById('validation').style.display = show;
-
+  document.getElementById('validation').disabled = show;
 }

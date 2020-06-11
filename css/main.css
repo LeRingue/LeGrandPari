@@ -67,6 +67,17 @@ label {
   border: .2rem solid darkblue;
 }
 
+.file_mgt{
+  width: 10%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  font-size: 1rem;
+  border: .2rem solid darkblue;
+}
+
 label:hover {
   background-color: #6DC990;
 }
@@ -166,10 +177,6 @@ main>section{
   left: 0%;
   /* column-width: 50px; */
   /* border: 2px solid darkblue; */
-}
-
-button{
-  display: none;
 }
 
 h1{
