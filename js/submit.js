@@ -1,5 +1,5 @@
 function submit_form(){
-  var csv = ''; // = 'Name,Title\n';
+  var csv = "Le Grand Paris 9\n"; // Title line
   // Create header
   for (let i = 0; i < FormComplete.length; i++){
     csv += FormComplete[i];
@@ -27,52 +27,44 @@ function submit_form(){
   //window.open('mailto:gleseigneur@gmail.com?subject="Le Grand Pari 9"');
 }
 
-function load_form(){
-  let header = [];
-  let fileSelector = document.getElementById('file-selector').files[0];
-  let reader = new FileReader();
-  reader.onload = reader.readAsText(fileSelector);
-  // function(e) {
-  //   // The file's text will be printed here
-  //   console.log(e.target.result)
-  // };
+function read_csv_raw(textin, raw_idx){
+  let i = 0;
+  let j = 0;
+  let textout = "";
+  // Go to index associated to raw_nb
+  for (let k = 0; k < raw_idx; k++){
+    while ((i < textin.length) && (textin[i] != '\n')){
+      i++;
+    }
+    if (i == textin.length){
+      return textout;
+    }
+    if (textin[i] == '\n'){
+      i++;
+    }
+  }
 
-  // reader.readAsText(fileSelector);
-  console.log(fileSelector.result);
-  console.log(reader);
-
-  // csv = fopen(getScriptPath(), 0);
-  // Compare header
-  // for (let i = 0; i < FormComplete.length; i++){
-  //   header[i] = csv[i];
-  //   // document.getElementById(FormComplete[i]).value; = csv;
-  //   // csv += ',';
-  // }
-
-
-
-  // Create header
-  // for (let i = 0; i < FormComplete.length; i++){
-  //   csv += FormComplete[i];
-  //   csv += ',';
-  // }
-  // csv += "\n";
-  //
-  // // Create data: scores
-  // for (let i = 0; i < FormComplete.length; i++){
-  //   csv += document.getElementById(FormComplete[i]).value;
-  //   csv += ',';
-  // }
-  //
-  // csv += "\n";
-  //
-  // console.log(csv);
-  // var hiddenElement = document.createElement('a');
-  // hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-  // hiddenElement.target = '_blank';
-  // hiddenElement.download = 'Prono.csv';
-  // hiddenElement.click();
-
-  // Send email
-  //window.open('mailto:gleseigneur@gmail.com?subject="Le Grand Pari 9"');
+  while((i < textin.length) && (textin[i] != '\n')){
+    textout += textin[i];
+    i++;
+  }
+  return textout;
 }
+
+function load_form(event){
+  var input = event.target;
+  var reader = new FileReader();
+  reader.onload = function(){
+    var text = reader.result;
+    // Read LeGrandPari ID
+    let line = "sample text";
+    let line_nb = 0;
+    while (line != "") {
+      line = read_csv_raw(text, line_nb);
+      console.log(line);
+      line_nb++;
+    }
+
+  };
+  reader.readAsText(input.files[0]);
+  };
