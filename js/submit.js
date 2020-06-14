@@ -1,5 +1,9 @@
+const LINE_NB = 3;
+const TITLE_LINE = "Le Grand Pari 9";
+const FILE_NAME = 'LeGrandPari9_Prono_';
+
 function submit_form(){
-  var csv = "Le Grand Paris 9\n"; // Title line
+  var csv = TITLE_LINE + "\n"; // Title line
   // Create header
   for (let i = 0; i < FormComplete.length; i++){
     csv += FormComplete[i];
@@ -15,7 +19,7 @@ function submit_form(){
 
   csv += "\n";
 
-  let file_name = 'LeGrandPari9_Prono_' + document.getElementById('name').value +'.csv'
+  let file_name = FILE_NAME + document.getElementById('name').value + '.csv'
   // console.log(csv);
   var hiddenElement = document.createElement('a');
   hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
@@ -57,13 +61,26 @@ function load_form(event){
   reader.onload = function(){
     var text = reader.result;
     // Read LeGrandPari ID
-    let line = "sample text";
+    let line = ["sample text"];
     let line_nb = 0;
-    while (line != "") {
-      line = read_csv_raw(text, line_nb);
-      console.log(line);
+    line[line_nb] = read_csv_raw(text, line_nb);
+    while (line[line_nb] != "") {
       line_nb++;
+      line[line_nb] = read_csv_raw(text, line_nb);
     }
+    // Check if file has 3 lines (expected data) + 1 ""
+    if (line.length != LINE_NB + 1){
+      alert("Wrong file")
+      return;
+    }
+    // Check if first line is the title line
+    if (line[0] != TITLE_LINE){
+      alert("Wrong file")
+      return;
+    }
+    // Slice header line into a table
+
+    // Fill Element ID with loaded data
 
   };
   reader.readAsText(input.files[0]);
