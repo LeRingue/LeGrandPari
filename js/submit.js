@@ -55,6 +55,23 @@ function read_csv_raw(textin, raw_idx){
   return textout;
 }
 
+function csv_string_to_table(string){
+  let i = 0;
+  let j = 0;
+  let outtable = [""];
+  while (i < string.length){
+    if (string[i] != ",") {
+      outtable[j] += string[i];
+    } else {
+      j++;
+      outtable.push("");
+    }
+    i++;
+  }
+  outtable.pop();
+  return outtable;
+}
+
 function load_form(event){
   var input = event.target;
   var reader = new FileReader();
@@ -63,6 +80,8 @@ function load_form(event){
     // Read LeGrandPari ID
     let line = ["sample text"];
     let line_nb = 0;
+    let header = "";
+    let scores = "";
     line[line_nb] = read_csv_raw(text, line_nb);
     while (line[line_nb] != "") {
       line_nb++;
@@ -79,9 +98,15 @@ function load_form(event){
       return;
     }
     // Slice header line into a table
-
+    header = csv_string_to_table(line[1]);
+    scores = csv_string_to_table(line[2]);
     // Fill Element ID with loaded data
-
+    for (let i = 0; i < header.length; i++){
+      document.getElementById(header[i]).value = scores[i];
+    }
+    // Update group ranking and Rounds of x teams
+    logKey();
   };
+
   reader.readAsText(input.files[0]);
   };

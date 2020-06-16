@@ -1,17 +1,24 @@
-html, body, header, main, footer, div, nav, section{
+html, body, header, main, footer, div, nav, section, label, table, input{
   padding: 0;
   border: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: lightblue;
+  /* background-color: rgba(0,0,0,.1); */
+  /* background-color: lightblue; */
   /* background-color: #C4E8C8; */
-  color: #3A5FCD;
+  /* color: #3A5FCD; */
 }
 
 body{
   display:flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
+  background-image: url("../img/LogoEuro2020.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /*background-origin: border-box;*/
+  background-attachment: fixed;
 }
 
 header{
